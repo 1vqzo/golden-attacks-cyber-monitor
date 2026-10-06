@@ -1,387 +1,294 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>© Golden Attacks By mo7a - لوحة مراقبة الهجمات السيبرانية</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyber Attacks | Monitoring Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .intro-screen { position: fixed; inset: 0; background: linear-gradient(135deg, #06111d 0%, #0b1a2d 50%, #101d34 100%); z-index: 1000; display: grid; place-items: center; }
+    .intro-box { text-align: center; max-width: 500px; padding: 40px; }
+    .intro-badge { display: inline-block; padding: 8px 16px; background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.3); border-radius: 999px; color: #d4af37; font-weight: 700; margin-bottom: 20px; }
+    .intro-box h1 { font-size: 2.5rem; margin: 20px 0; color: #edf4ff; font-family: 'Cairo', sans-serif; }
+    .intro-box p { color: #b6c7e1; font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px; }
+    .primary-btn { background: linear-gradient(135deg, #d4af37, #f0c14b); color: #111; border: none; padding: 15px 35px; border-radius: 12px; font-weight: 800; cursor: pointer; font-size: 1.05rem; box-shadow: 0 10px 25px rgba(212,175,55,0.3); }
+  </style>
 </head>
 <body>
-    <!-- MODALS -->
-    <div id="help-modal" class="modal hidden">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <h2>👋 مرحباً بك في Golden Attacks</h2>
-            <p>منصة احترافية لمراقبة الهجمات السيبرانية حول العالم بشكل مباشر وآني. تابع التهديدات، حلل الأنماط، واحصل على رؤية شاملة للمشهد الأمني العالمي.</p>
-            <button class="btn btn-primary" onclick="closeModal('help-modal')">بدء التصفح</button>
-        </div>
+  <div id="intro" class="intro-screen">
+    <div class="intro-box">
+      <div class="intro-badge">Cyber Attacks</div>
+      <h1>مرحباً بك في Cyber Attacks</h1>
+      <p>منصة احترافية لمراقبة الهجمات السيبرانية حول العالم في الوقت الفعلي. تابع التهديدات، حلل الأنماط، وافهم المشهد الأمني العالمي.</p>
+      <button id="startBtn" class="primary-btn" onclick="document.getElementById('intro').style.display='none'">ابدأ الآن</button>
     </div>
+  </div>
 
-    <div id="settings-modal" class="modal hidden">
-        <div class="modal-content settings-content">
-            <button class="modal-close">&times;</button>
-            <h2>⚙️ الإعدادات</h2>
-            <div class="settings-grid">
-                <div class="setting-item">
-                    <label>🌙 المظهر</label>
-                    <select id="theme-select">
-                        <option value="dark">الوضع الداكن</option>
-                        <option value="light">الوضع الفاتح</option>
-                        <option value="auto">تلقائي</option>
-                    </select>
-                </div>
-                <div class="setting-item">
-                    <label>🔔 التنبيهات</label>
-                    <input type="checkbox" id="alerts-toggle" checked>
-                </div>
-                <div class="setting-item">
-                    <label>📊 التحديثات الحية</label>
-                    <input type="checkbox" id="live-updates" checked>
-                </div>
-                <div class="setting-item">
-                    <label>🎨 الألوان</label>
-                    <select id="color-scheme">
-                        <option value="gold">ذهبي</option>
-                        <option value="cyan">سماوي</option>
-                        <option value="purple">بنفسجي</option>
-                    </select>
-                </div>
-            </div>
-            <button class="btn btn-secondary" onclick="closeModal('settings-modal')">حفظ</button>
+  <nav class="navbar">
+    <div class="container nav-wrap">
+      <div class="brand">
+        <div class="brand-mark">CA</div>
+        <div>
+          <div class="brand-name">Cyber Attacks</div>
+          <div class="brand-sub">© by mo7a</div>
         </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="#threats">الهجمات</a>
+        <a href="#stats">الإحصائيات</a>
+        <a href="#regions">الدول</a>
+        <a href="#about">عن المنصة</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="settingsBtn">⚙️</button>
+        <button class="icon-btn" id="contactBtn">💬</button>
+        <button class="icon-btn" id="searchBtn">🔍</button>
+        <div class="lang-switch">
+          <button class="lang active" data-lang="ar">AR</button>
+          <button class="lang" data-lang="en">EN</button>
+        </div>
+      </div>
     </div>
+  </nav>
 
-    <div id="contact-modal" class="modal hidden">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <h2>📬 تواصل معنا</h2>
-            <form class="contact-form">
-                <input type="text" placeholder="اسمك" required>
-                <input type="email" placeholder="بريدك الإلكتروني" required>
-                <textarea placeholder="رسالتك..." rows="5" required></textarea>
-                <button type="submit" class="btn btn-primary">إرسال</button>
-            </form>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="eyebrow">Cyber Security Network</span>
+        <h1>مرصد التهديدات السيبرانية العالمي</h1>
+        <p>مراقبة مباشرة للهجمات السيبرانية على مستوى العالم، مع تحليل أنواع التهديدات وموقعها ودرجة خطورتها في الوقت الحقيقي.</p>
+
+        <div class="hero-metrics">
+          <div>
+            <strong>12.9K</strong>
+            <span>هجمات</span>
+          </div>
+          <div>
+            <strong>31</strong>
+            <span>دول</span>
+          </div>
+          <div>
+            <strong>24/7</strong>
+            <span>مراقبة</span>
+          </div>
         </div>
+
+        <div class="hero-actions">
+          <button class="primary-btn">ابدأ المراقبة</button>
+          <button class="ghost-btn">عرض التقرير</button>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <img src="https://k.top4top.io/p_39308zugf0.jpeg" alt="profile" />
+        <div class="profile-meta">
+          <h3>Mo7a</h3>
+          <span>vqzo.1</span>
+        </div>
+      </div>
     </div>
+  </header>
 
-    <!-- BACKGROUND EFFECTS -->
-    <div class="bg-container">
-        <div class="glow glow-1"></div>
-        <div class="glow glow-2"></div>
-        <div class="glow glow-3"></div>
-        <div class="noise"></div>
-        <div class="grid-bg"></div>
+  <section class="social-bar">
+    <div class="container social-row">
+      <a href="https://www.instagram.com/1vqzoo" target="_blank" class="social-link ig">📷 Instagram</a>
+      <a href="https://www.facebook.com" target="_blank" class="social-link fb">f Facebook</a>
+      <a href="https://www.snapchat.com/add/vqzo.1" target="_blank" class="social-link sc">👻 Snapchat</a>
+      <a href="mailto:cyberattacks.contact@gmail.com" class="social-link mail">✉️ البريد</a>
     </div>
+  </section>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="container nav-flex">
-            <div class="logo-section">
-                <div class="logo-icon">⚡</div>
-                <div>
-                    <div class="logo-text">Golden Attacks</div>
-                    <div class="logo-sub">© by mo7a</div>
-                </div>
-            </div>
-
-            <div class="nav-links">
-                <a href="#threats" class="nav-link">📍 الهجمات</a>
-                <a href="#stats" class="nav-link">📊 الإحصائيات</a>
-                <a href="#countries" class="nav-link">🌍 الدول</a>
-                <a href="#about" class="nav-link">ℹ️ عن</a>
-            </div>
-
-            <div class="nav-tools">
-                <button class="icon-btn" onclick="openModal('settings-modal')" title="الإعدادات">⚙️</button>
-                <button class="icon-btn" onclick="openModal('contact-modal')" title="تواصل معنا">💬</button>
-                <button class="icon-btn" onclick="toggleSearch()" title="بحث">🔍</button>
-                <div class="lang-toggle">
-                    <button class="lang-btn active" data-lang="ar">AR</button>
-                    <button class="lang-btn" data-lang="en">EN</button>
-                </div>
-            </div>
+  <section id="threats" class="section">
+    <div class="container">
+      <h2>حالة التهديدات الحالية</h2>
+      <div class="threat-grid">
+        <div class="threat-box critical">
+          <div class="threat-top">
+            <span class="tag critical">حرج</span>
+            <span class="pulse"></span>
+          </div>
+          <div class="threat-number">847</div>
+          <p>حوادث نشطة</p>
         </div>
-    </nav>
 
-    <!-- SEARCH BAR -->
-    <div id="search-bar" class="search-bar hidden">
-        <input type="text" placeholder="ابحث عن دول أو أنواع هجمات..." class="search-input">
-        <button class="search-btn">🔍</button>
+        <div class="threat-box high">
+          <div class="threat-top">
+            <span class="tag high">عالي</span>
+            <span class="pulse"></span>
+          </div>
+          <div class="threat-number">2,341</div>
+          <p>محاولات مكتشفة</p>
+        </div>
+
+        <div class="threat-box medium">
+          <div class="threat-top">
+            <span class="tag medium">متوسط</span>
+          </div>
+          <div class="threat-number">5,203</div>
+          <p>قيد المراقبة</p>
+        </div>
+
+        <div class="threat-box low">
+          <div class="threat-top">
+            <span class="tag low">منخفض</span>
+          </div>
+          <div class="threat-number">12,847</div>
+          <p>تهديدات طفيفة</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <h1 class="hero-title">مراقب التهديدات السيبرانية العالمي</h1>
-                <p class="hero-desc">تابع الهجمات السيبرانية في الوقت الفعلي • حلل الأنماط • افهم المشهد الأمني</p>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">12.9K</span>
-                        <span class="stat-label">هجمة معروفة</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">31</span>
-                        <span class="stat-label">دول مراقبة</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-label">تحديثات حية</span>
-                    </div>
-                </div>
-                <div class="hero-buttons">
-                    <button class="btn btn-primary btn-lg">🚀 ابدأ المراقبة</button>
-                    <button class="btn btn-outline btn-lg">📺 شاهد عرض توضيحي</button>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <img src="https://k.top4top.io/p_39308zugf0.jpeg" alt="Mo7a" class="profile-img">
-                <div class="profile-info">
-                    <h3>Mo7a 🎯</h3>
-                    <p>vqzo.1</p>
-                </div>
-            </div>
+  <section id="regions" class="section">
+    <div class="container">
+      <h2>الدول الأكثر استهدافاً</h2>
+      <div class="countries-grid">
+        <div class="country-card">
+          <div class="country-top"><span>🇺🇸</span><span class="rank">1</span></div>
+          <h3>United States</h3>
+          <p>3,847 هجمة</p>
+          <div class="progress"><span style="width:95%"></span></div>
         </div>
-    </section>
-
-    <!-- SOCIAL STRIP -->
-    <section class="social-strip">
-        <div class="container">
-            <div class="social-links">
-                <a href="https://www.instagram.com/1vqzoo" target="_blank" class="social-btn instagram">
-                    <span>📷</span> Instagram
-                </a>
-                <a href="https://www.facebook.com/mo7a" target="_blank" class="social-btn facebook">
-                    <span>f</span> Facebook
-                </a>
-                <a href="https://www.snapchat.com/add/vqzo.1" target="_blank" class="social-btn snapchat">
-                    <span>👻</span> Snapchat
-                </a>
-                <a href="mailto:contact@goldenattacks.io" class="social-btn email">
-                    <span>✉️</span> البريد
-                </a>
-            </div>
+        <div class="country-card">
+          <div class="country-top"><span>🇬🇧</span><span class="rank">2</span></div>
+          <h3>United Kingdom</h3>
+          <p>2,541 هجمة</p>
+          <div class="progress"><span style="width:78%"></span></div>
         </div>
-    </section>
-
-    <!-- THREATS SECTION -->
-    <section class="threats-section" id="threats">
-        <div class="container">
-            <h2 class="section-title">🚨 حالة التهديدات الحالية</h2>
-            <div class="threats-grid">
-                <div class="threat-card critical">
-                    <div class="threat-header">
-                        <span class="threat-badge critical">حرج</span>
-                        <span class="threat-pulse"></span>
-                    </div>
-                    <h3>847</h3>
-                    <p>حوادث نشطة</p>
-                </div>
-                <div class="threat-card high">
-                    <div class="threat-header">
-                        <span class="threat-badge high">عالي</span>
-                        <span class="threat-pulse"></span>
-                    </div>
-                    <h3>2,341</h3>
-                    <p>محاولات مكتشفة</p>
-                </div>
-                <div class="threat-card medium">
-                    <div class="threat-header">
-                        <span class="threat-badge medium">متوسط</span>
-                    </div>
-                    <h3>5,203</h3>
-                    <p>قيد المراقبة</p>
-                </div>
-                <div class="threat-card low">
-                    <div class="threat-header">
-                        <span class="threat-badge low">منخفض</span>
-                    </div>
-                    <h3>12,847</h3>
-                    <p>تهديدات طفيفة</p>
-                </div>
-            </div>
+        <div class="country-card">
+          <div class="country-top"><span>🇯🇵</span><span class="rank">3</span></div>
+          <h3>Japan</h3>
+          <p>2,134 هجمة</p>
+          <div class="progress"><span style="width:65%"></span></div>
         </div>
-    </section>
-
-    <!-- COUNTRIES SECTION -->
-    <section class="countries-section" id="countries">
-        <div class="container">
-            <h2 class="section-title">🌍 الدول الأكثر استهدافاً</h2>
-            <div class="countries-grid">
-                <div class="country-card">
-                    <div class="country-header">
-                        <span class="country-flag">🇺🇸</span>
-                        <span class="country-rank">1</span>
-                    </div>
-                    <h3>United States</h3>
-                    <p class="country-attacks">3,847 هجمة</p>
-                    <div class="progress-bar"><div class="progress" style="width: 95%"></div></div>
-                </div>
-                <div class="country-card">
-                    <div class="country-header">
-                        <span class="country-flag">🇬🇧</span>
-                        <span class="country-rank">2</span>
-                    </div>
-                    <h3>United Kingdom</h3>
-                    <p class="country-attacks">2,541 هجمة</p>
-                    <div class="progress-bar"><div class="progress" style="width: 78%"></div></div>
-                </div>
-                <div class="country-card">
-                    <div class="country-header">
-                        <span class="country-flag">🇯🇵</span>
-                        <span class="country-rank">3</span>
-                    </div>
-                    <h3>Japan</h3>
-                    <p class="country-attacks">2,134 هجمة</p>
-                    <div class="progress-bar"><div class="progress" style="width: 65%"></div></div>
-                </div>
-                <div class="country-card">
-                    <div class="country-header">
-                        <span class="country-flag">🇩🇪</span>
-                        <span class="country-rank">4</span>
-                    </div>
-                    <h3>Germany</h3>
-                    <p class="country-attacks">1,987 هجمة</p>
-                    <div class="progress-bar"><div class="progress" style="width: 61%"></div></div>
-                </div>
-                <div class="country-card">
-                    <div class="country-header">
-                        <span class="country-flag">🇨🇦</span>
-                        <span class="country-rank">5</span>
-                    </div>
-                    <h3>Canada</h3>
-                    <p class="country-attacks">1,654 هجمة</p>
-                    <div class="progress-bar"><div class="progress" style="width: 51%"></div></div>
-                </div>
-                <div class="country-card">
-                    <div class="country-header">
-                        <span class="country-flag">🇦🇺</span>
-                        <span class="country-rank">6</span>
-                    </div>
-                    <h3>Australia</h3>
-                    <p class="country-attacks">1,423 هجمة</p>
-                    <div class="progress-bar"><div class="progress" style="width: 44%"></div></div>
-                </div>
-            </div>
+        <div class="country-card">
+          <div class="country-top"><span>🇩🇪</span><span class="rank">4</span></div>
+          <h3>Germany</h3>
+          <p>1,987 هجمة</p>
+          <div class="progress"><span style="width:61%"></span></div>
         </div>
-    </section>
-
-    <!-- STATISTICS SECTION -->
-    <section class="stats-section" id="stats">
-        <div class="container">
-            <h2 class="section-title">📈 توزيع أنواع الهجمات</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="chart-circle" style="--percentage: 28">
-                        <span>28%</span>
-                    </div>
-                    <h3>Ransomware</h3>
-                    <p>3,847 حالة</p>
-                </div>
-                <div class="stat-card">
-                    <div class="chart-circle" style="--percentage: 24">
-                        <span>24%</span>
-                    </div>
-                    <h3>DDoS</h3>
-                    <p>3,301 حالة</p>
-                </div>
-                <div class="stat-card">
-                    <div class="chart-circle" style="--percentage: 19">
-                        <span>19%</span>
-                    </div>
-                    <h3>Data Breaches</h3>
-                    <p>2,611 حالة</p>
-                </div>
-                <div class="stat-card">
-                    <div class="chart-circle" style="--percentage: 16">
-                        <span>16%</span>
-                    </div>
-                    <h3>Phishing</h3>
-                    <p>2,198 حالة</p>
-                </div>
-                <div class="stat-card">
-                    <div class="chart-circle" style="--percentage: 13">
-                        <span>13%</span>
-                    </div>
-                    <h3>Malware</h3>
-                    <p>1,786 حالة</p>
-                </div>
-            </div>
+        <div class="country-card">
+          <div class="country-top"><span>🇨🇦</span><span class="rank">5</span></div>
+          <h3>Canada</h3>
+          <p>1,654 هجمة</p>
+          <div class="progress"><span style="width:51%"></span></div>
         </div>
-    </section>
-
-    <!-- LIVE FEED -->
-    <section class="feed-section">
-        <div class="container">
-            <h2 class="section-title">⚡ التحديثات المباشرة</h2>
-            <div class="feed-items">
-                <div class="feed-item critical">
-                    <span class="feed-time">الآن</span>
-                    <span class="feed-type critical">حرج</span>
-                    <p>تم اكتشاف حملة برامج فدية ضخمة تستهدف البنوك الأوروبية</p>
-                    <span class="feed-location">🇫🇷 France</span>
-                </div>
-                <div class="feed-item high">
-                    <span class="feed-time">منذ دقيقة</span>
-                    <span class="feed-type high">عالي</span>
-                    <p>هجوم DDoS واسع النطاق يضرب البنية التحتية الحكومية</p>
-                    <span class="feed-location">🇮🇳 India</span>
-                </div>
-                <div class="feed-item medium">
-                    <span class="feed-time">منذ 5 دقائق</span>
-                    <span class="feed-type medium">متوسط</span>
-                    <p>حملة تصيد احترافية تستهدف حسابات البريد الإلكتروني</p>
-                    <span class="feed-location">🌐 عالمي</span>
-                </div>
-            </div>
+        <div class="country-card">
+          <div class="country-top"><span>🇦🇺</span><span class="rank">6</span></div>
+          <h3>Australia</h3>
+          <p>1,423 هجمة</p>
+          <div class="progress"><span style="width:44%"></span></div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- ABOUT SECTION -->
-    <section class="about-section" id="about">
-        <div class="container">
-            <h2 class="section-title">ℹ️ حول المنصة</h2>
-            <div class="about-content">
-                <p>منصة Golden Attacks © by mo7a هي لوحة معلومات احترافية متقدمة لمراقبة الهجمات السيبرانية حول العالم في الوقت الفعلي، مع إحصائيات دقيقة وتحليلات عميقة للتهديدات والأنماط والاتجاهات.</p>
-                <div class="features-grid">
-                    <div class="feature-box">
-                        <span>🛡️</span>
-                        <h4>مراقبة فورية</h4>
-                        <p>تابع التهديدات أثناء حدوثها</p>
-                    </div>
-                    <div class="feature-box">
-                        <span>📊</span>
-                        <h4>تحليل متقدم</h4>
-                        <p>إحصائيات وتقارير تفصيلية</p>
-                    </div>
-                    <div class="feature-box">
-                        <span>🌍</span>
-                        <h4>تغطية عالمية</h4>
-                        <p>مراقبة من جميع أنحاء العالم</p>
-                    </div>
-                </div>
-            </div>
+  <section id="stats" class="section">
+    <div class="container">
+      <h2>توزيع أنواع الهجمات</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="ring ring-28"><span>28%</span></div>
+          <h3>Ransomware</h3>
+          <p>3,847 حالة</p>
         </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <div>
-                <p>© 2026 Golden Attacks © By mo7a</p>
-                <p>منصة مراقبة الهجمات السيبرانية الاحترافية</p>
-            </div>
-            <div class="footer-links">
-                <a href="#">الخصوصية</a>
-                <a href="#">الشروط</a>
-                <a href="#">التواصل</a>
-            </div>
+        <div class="stat-card">
+          <div class="ring ring-24"><span>24%</span></div>
+          <h3>DDoS</h3>
+          <p>3,301 حالة</p>
         </div>
-    </footer>
+        <div class="stat-card">
+          <div class="ring ring-19"><span>19%</span></div>
+          <h3>Data Breach</h3>
+          <p>2,611 حالة</p>
+        </div>
+        <div class="stat-card">
+          <div class="ring ring-16"><span>16%</span></div>
+          <h3>Phishing</h3>
+          <p>2,198 حالة</p>
+        </div>
+        <div class="stat-card">
+          <div class="ring ring-13"><span>13%</span></div>
+          <h3>Malware</h3>
+          <p>1,786 حالة</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <section class="section">
+    <div class="container">
+      <h2>التحديثات المباشرة</h2>
+      <div class="feed-list">
+        <div class="feed-item critical-item">
+          <span>الآن</span>
+          <span class="badge critical">حرج</span>
+          <p>تم اكتشاف حملة برامج فدية واسعة تستهدف البنوك الأوروبية.</p>
+          <strong>🇫🇷 France</strong>
+        </div>
+        <div class="feed-item high-item">
+          <span>منذ دقيقة</span>
+          <span class="badge high">عالي</span>
+          <p>هجوم DDoS واسع النطاق يضرب البنية التحتية في جنوب آسيا.</p>
+          <strong>🇮🇳 India</strong>
+        </div>
+        <div class="feed-item medium-item">
+          <span>منذ 5 دقائق</span>
+          <span class="badge medium">متوسط</span>
+          <p>حملة تصيد احترافية تستهدف الحسابات البريدية في الشركات العالمية.</p>
+          <strong>🌐 Global</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section about-section">
+    <div class="container">
+      <h2>عن المنصة</h2>
+      <div class="about-box">
+        <p>منصة Cyber Attacks © by mo7a هي أداة احترافية متكاملة لمراقبة الهجمات السيبرانية حول العالم، مع تحليل التهديدات بشكل مباشر ومراقبة مستويات الخطر، الأنماط، والانتشار الجغرافي.</p>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <span>🛡️</span>
+            <h4>مراقبة فورية</h4>
+            <p>متابعة التهديدات عند ظهورها في كل منطقة</p>
+          </div>
+          <div class="feature-card">
+            <span>📊</span>
+            <h4>تحليل متقدم</h4>
+            <p>إحصائيات وتقارير دقيقة للأنماط العالمية</p>
+          </div>
+          <div class="feature-card">
+            <span>🌍</span>
+            <h4>تغطية عالمية</h4>
+            <p>مراقبة تهديدات من كل بقعة على الأرض</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-wrap">
+      <p>© 2026 Cyber Attacks © By mo7a</p>
+      <div class="footer-links">
+        <a href="#">الخصوصية</a>
+        <a href="#">الشروط</a>
+        <a href="#">التواصل</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+  <div class="bg-glow glow-3"></div>
+  <div class="grid-overlay"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
