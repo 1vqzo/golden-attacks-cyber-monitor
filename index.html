@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Attacks © By mo7a - Cyber Threat Monitoring</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background glows -->
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="noise"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">GA©</div>
+            <div class="nav-links">
+                <a href="#threat-map">Threat Map</a>
+                <a href="#statistics">Statistics</a>
+                <a href="#countries">Countries</a>
+                <a href="#about">About</a>
+            </div>
+            <div class="status-indicator"><span class="dot"></span> LIVE</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="eyebrow">© Golden Attacks By mo7a</p>
+                <h1>Global Cyber Threat Monitor</h1>
+                <p class="subtitle">Real-time tracking of cybersecurity attacks across the globe. Monitor threats, analyze patterns, and understand the evolving cyber landscape.</p>
+                <button class="btn btn-primary">Start Monitoring</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Threat Level Section -->
+    <section class="threat-level">
+        <div class="container">
+            <h2>Global Threat Status</h2>
+            <div class="threat-grid">
+                <div class="threat-card critical">
+                    <div class="threat-icon">⚠️</div>
+                    <div class="threat-info">
+                        <h3>Critical</h3>
+                        <p class="threat-number">847</p>
+                        <p class="threat-label">Active Incidents</p>
+                    </div>
+                </div>
+                <div class="threat-card high">
+                    <div class="threat-icon">🔴</div>
+                    <div class="threat-info">
+                        <h3>High</h3>
+                        <p class="threat-number">2,341</p>
+                        <p class="threat-label">Detected Attempts</p>
+                    </div>
+                </div>
+                <div class="threat-card medium">
+                    <div class="threat-icon">🟡</div>
+                    <div class="threat-info">
+                        <h3>Medium</h3>
+                        <p class="threat-number">5,203</p>
+                        <p class="threat-label">Monitoring</p>
+                    </div>
+                </div>
+                <div class="threat-card low">
+                    <div class="threat-icon">🟢</div>
+                    <div class="threat-info">
+                        <h3>Low</h3>
+                        <p class="threat-number">12,847</p>
+                        <p class="threat-label">Minor Threats</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Most Attacked Countries -->
+    <section id="countries" class="countries">
+        <div class="container">
+            <h2>Most Targeted Countries</h2>
+            <div class="countries-grid">
+                <div class="country-card">
+                    <div class="country-flag">🇺🇸</div>
+                    <div class="country-info">
+                        <h3>United States</h3>
+                        <p class="attack-count">3,847 attacks</p>
+                        <div class="threat-bar">
+                            <div class="threat-fill" style="width: 95%"></div>
+                        </div>
+                        <p class="threat-type">Ransomware, DDoS</p>
+                    </div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">🇬🇧</div>
+                    <div class="country-info">
+                        <h3>United Kingdom</h3>
+                        <p class="attack-count">2,541 attacks</p>
+                        <div class="threat-bar">
+                            <div class="threat-fill" style="width: 78%"></div>
+                        </div>
+                        <p class="threat-type">Data Breach, Phishing</p>
+                    </div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">🇯🇵</div>
+                    <div class="country-info">
+                        <h3>Japan</h3>
+                        <p class="attack-count">2,134 attacks</p>
+                        <div class="threat-bar">
+                            <div class="threat-fill" style="width: 65%"></div>
+                        </div>
+                        <p class="threat-type">Malware, Zero-day</p>
+                    </div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">🇩🇪</div>
+                    <div class="country-info">
+                        <h3>Germany</h3>
+                        <p class="attack-count">1,987 attacks</p>
+                        <div class="threat-bar">
+                            <div class="threat-fill" style="width: 61%"></div>
+                        </div>
+                        <p class="threat-type">APT, Supply Chain</p>
+                    </div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">🇨🇦</div>
+                    <div class="country-info">
+                        <h3>Canada</h3>
+                        <p class="attack-count">1,654 attacks</p>
+                        <div class="threat-bar">
+                            <div class="threat-fill" style="width: 51%"></div>
+                        </div>
+                        <p class="threat-type">Credential Theft</p>
+                    </div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">🇦🇺</div>
+                    <div class="country-info">
+                        <h3>Australia</h3>
+                        <p class="attack-count">1,423 attacks</p>
+                        <div class="threat-bar">
+                            <div class="threat-fill" style="width: 44%"></div>
+                        </div>
+                        <p class="threat-type">IoT Attacks</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Attack Types Distribution -->
+    <section id="statistics" class="statistics">
+        <div class="container">
+            <h2>Attack Types Distribution</h2>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-chart">
+                        <div class="chart-value">28%</div>
+                        <svg viewBox="0 0 100 100" class="circle-chart">
+                            <circle cx="50" cy="50" r="45" style="stroke-dasharray: 251.2 250.4"></circle>
+                        </svg>
+                    </div>
+                    <h3>Ransomware</h3>
+                    <p>3,847 incidents</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-chart">
+                        <div class="chart-value">24%</div>
+                        <svg viewBox="0 0 100 100" class="circle-chart">
+                            <circle cx="50" cy="50" r="45" style="stroke-dasharray: 226.2 250.4"></circle>
+                        </svg>
+                    </div>
+                    <h3>DDoS Attacks</h3>
+                    <p>3,301 incidents</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-chart">
+                        <div class="chart-value">19%</div>
+                        <svg viewBox="0 0 100 100" class="circle-chart">
+                            <circle cx="50" cy="50" r="45" style="stroke-dasharray: 176.4 250.4"></circle>
+                        </svg>
+                    </div>
+                    <h3>Data Breaches</h3>
+                    <p>2,611 incidents</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-chart">
+                        <div class="chart-value">16%</div>
+                        <svg viewBox="0 0 100 100" class="circle-chart">
+                            <circle cx="50" cy="50" r="45" style="stroke-dasharray: 150.2 250.4"></circle>
+                        </svg>
+                    </div>
+                    <h3>Phishing</h3>
+                    <p>2,198 incidents</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-chart">
+                        <div class="chart-value">13%</div>
+                        <svg viewBox="0 0 100 100" class="circle-chart">
+                            <circle cx="50" cy="50" r="45" style="stroke-dasharray: 125.2 250.4"></circle>
+                        </svg>
+                    </div>
+                    <h3>Malware</h3>
+                    <p>1,786 incidents</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Feed Section -->
+    <section class="live-feed">
+        <div class="container">
+            <h2>Live Threat Feed</h2>
+            <div class="feed-container">
+                <div class="feed-item critical-item">
+                    <span class="time">09:47 UTC</span>
+                    <span class="badge critical">CRITICAL</span>
+                    <p>Major ransomware campaign detected targeting financial institutions across Europe</p>
+                    <span class="origin">🇫🇷 France</span>
+                </div>
+                <div class="feed-item high-item">
+                    <span class="time">09:32 UTC</span>
+                    <span class="badge high">HIGH</span>
+                    <p>Large-scale DDoS attack on government infrastructure in South Asia</p>
+                    <span class="origin">🇮🇳 India</span>
+                </div>
+                <div class="feed-item high-item">
+                    <span class="time">09:15 UTC</span>
+                    <span class="badge high">HIGH</span>
+                    <p>Suspicious login attempts detected on multiple cloud services</p>
+                    <span class="origin">🇧🇷 Brazil</span>
+                </div>
+                <div class="feed-item medium-item">
+                    <span class="time">09:02 UTC</span>
+                    <span class="badge medium">MEDIUM</span>
+                    <p>Phishing campaign targeting corporate email accounts worldwide</p>
+                    <span class="origin">🌍 Multiple Regions</span>
+                </div>
+                <div class="feed-item medium-item">
+                    <span class="time">08:45 UTC</span>
+                    <span class="badge medium">MEDIUM</span>
+                    <p>Zero-day vulnerability discovered in widely-used software library</p>
+                    <span class="origin">🇰🇷 South Korea</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Golden Attacks Monitor</h2>
+            <div class="about-content">
+                <p>Golden Attacks © By mo7a is a comprehensive cybersecurity threat monitoring platform designed to track and analyze cyber attacks across the globe in real-time.</p>
+                <div class="features">
+                    <div class="feature">
+                        <h3>🛡️ Real-Time Monitoring</h3>
+                        <p>Track cyber threats as they happen across all regions</p>
+                    </div>
+                    <div class="feature">
+                        <h3>📊 Advanced Analytics</h3>
+                        <p>Analyze attack patterns and trends with detailed statistics</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🌍 Global Coverage</h3>
+                        <p>Monitor threats from every corner of the world</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Golden Attacks © By mo7a. All rights reserved.</p>
+            <p>Professional Cyber Threat Monitoring Dashboard</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
